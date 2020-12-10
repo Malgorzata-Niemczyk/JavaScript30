@@ -62,7 +62,19 @@
   <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
   
   <script>
+    const inputElements = document.querySelectorAll('.controls input')
+   
+    function handleUpdate() {
+      //console.log(this.value);
+      const suffix = this.dataset.sizing || ''; // it is to append a suffx stored in a dataset attribute to a variable, eg. data-sizing has px or nothing if a variable does not have such suffix
+      //console.log(suffix)
+      document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+      // console.log(this.name) this.name represents the name of the variable, here it is spacing, blur and base
+    };
 
+    inputElements.forEach(input => input.addEventListener('change', handleUpdate));
+    inputElements.forEach(input => input.addEventListener('mousemove', handleUpdate))
+    
   </script>
 
 </body>
