@@ -51,7 +51,7 @@
       top: 50%;
       transform-origin: 100%;
       transform: rotate(90deg);
-      transition: all 0.05s ease-in-out;
+      /* transition: all 0.05s ease-in-out; */
     }
 
   </style>
@@ -72,7 +72,7 @@
     const minutesHand = document.querySelector('.min-hand');
     const secondsHand = document.querySelector('.second-hand');
 
-    const time = 1000;
+    const time = 16;
 
     function setDate() {
       let now = new Date();
@@ -90,10 +90,6 @@
       minutesHand.style.transform = `rotate(${minutesDegrees}deg)`;
       hoursHand.style.transform = `rotate(${hoursDegrees}deg)`;
     };
-
-    function endTransition() {
-      
-    }
 
     setDate();
     setInterval(setDate, time);
