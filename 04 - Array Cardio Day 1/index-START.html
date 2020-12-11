@@ -126,6 +126,22 @@
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
+    const sortedAphaByLastName = people.sort((lastOne, firstOne) => {
+      const [aLast, aFirst] = lastOne.split(', ');
+      const [bLast, bFirst] = firstOne.split(', ');
+
+      console.log([bLast, bFirst])
+
+      switch(true) {
+        case (lastOne > firstOne):
+          return 1;
+          break;
+        default:
+          return -1;
+      }
+    });
+
+    console.log(sortedAphaByLastName)
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
