@@ -28,6 +28,10 @@
     }
 
     .panel {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
       flex: 1;
       background: #6B0F9C;
       box-shadow: inset 0 0 0 5px rgba(255,255,255,0.1);
@@ -54,6 +58,10 @@
 
     /* Flex Children */
     .panel > * {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: 1 0 auto;
       margin: 0;
       width: 100%;
       transition: transform 0.5s;
