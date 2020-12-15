@@ -6,6 +6,7 @@
 </head>
 <body>
   <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
+  
   <script>
     // ## Array Cardio Day 2
 
@@ -26,6 +27,11 @@
 
     // Some and Every Checks
     // Array.prototype.some() // is at least one person 19 or older?
+       const isAdult = people.some(person => {
+         return 2020 - person.year //current year minus the year each person was born
+       })
+       console.log(isAdult)
+
     // Array.prototype.every() // is everyone 19 or older?
 
     // Array.prototype.find()
