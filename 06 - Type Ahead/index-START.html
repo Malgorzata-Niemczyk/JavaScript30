@@ -32,14 +32,25 @@
     });
   };
 
+  const searchInput = document.querySelector('.search');
+  const suggestions = document.querySelector('.suggestions');
+
   function displayMatches() {
       // console.log(this.value)
       const matchArray = findMatches(this.value, cities);
-      console.log(matchArray);
+      // console.log(matchArray);
+      const htmlString = matchArray.map(place => {
+        return `
+        <li>
+          <span class="name">${place.city}, ${place.state}</span>
+          <span class="population">${place.population}</span>
+        </li>
+        `
+      }).join()
+
+      suggestions.innerHTML = htmlString;
   };
 
- const searchInput = document.querySelector('.search');
- const suggestions = document.querySelector('.suggestions');
 
  searchInput.addEventListener('change', displayMatches);
  searchInput.addEventListener('keyup', displayMatches);
