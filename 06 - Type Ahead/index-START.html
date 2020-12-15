@@ -24,17 +24,19 @@
     .then(response => response.json())
     .then(data => cities.push(...data))
 
-  function findMatches(wordToMach, cities) {
+  function findMatches(wordToMatch, cities) {
     return cities.filter(place => {
 
-      const regex = new RegEx(wordToMatch, 'gi');
-      return place.city.match(regex) || place.state.mach(regex)
-    })
+      const regex = new RegExp(wordToMatch, 'gi');
+      return place.city.match(regex) || place.state.match(regex)
+    });
   };
 
   function displayMatches() {
-      console.log(this.value)
-  }
+      // console.log(this.value)
+      const matchArray = findMatches(this.value, cities);
+      console.log(matchArray);
+  };
 
  const searchInput = document.querySelector('.search');
  const suggestions = document.querySelector('.suggestions');
