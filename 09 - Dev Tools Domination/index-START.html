@@ -9,7 +9,12 @@
   <p onClick="makeGreen()">×BREAK×DOWN×</p>
 
   <script>
-    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+    const dogs = [
+      { name: 'Snickers', age: 2 }, 
+      { name: 'hugo', age: 8 }
+    ];
+    
+    const p = document.querySelector('p');
 
     function makeGreen() {
       const p = document.querySelector('p');
@@ -22,24 +27,57 @@
     // Interpolated
 
     // Styled
+    console.log('%c I am some great text', 'font-size: 30px; background: gold; text-shadow: -3px -3px 3px tomato');
 
     // warning!
-
+    console.warn('Watch out!');
+    
     // Error :|
+    console.error(`You're wrong!`);
 
     // Info
+    console.info('There are no fun facts ATM');
 
     // Testing
+    console.assert(2 === '2', 'That is wrong!');
 
     // clearing
+    // console.clear();
 
     // Viewing DOM Elements
+    console.log(p);
+    console.dir(p);
 
     // Grouping together
+    dogs.forEach((dog) => {
+      console.groupCollapsed(`${dog.name}`)
 
+      console.log(`This is ${dog.name}. He is ${dog.age} years old.`);
+      console.log(`This is ${dog.name}. He is ${dog.age * 7} dog years old.`);
+
+      console.groupEnd(`${dog.name}`);
+    });
+    
     // counting
+    console.count('Gosh');
+    console.count('Tom');
+    console.count('Gosh');
+    console.count('Tom');
+    console.count('Gosh');
+    console.count('Gosh');
 
-    // timing
+    // timing - to see how long something takes
+    console.time('fetching data'); // starting a timer
+
+    fetch('https://api.github.com/users/wesbos')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetching data'); // passing the same string when we started the timer
+        console.log(data)
+      });
+    
+    // table - to display an array of items in a table
+    console.table(dogs);
 
   </script>
 </body>
