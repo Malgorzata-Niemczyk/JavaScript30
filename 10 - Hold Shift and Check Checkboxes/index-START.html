@@ -3,8 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Hold Shift to Check Multiple Checkboxes</title>
-</head>
-<body>
   <style>
 
     html {
@@ -50,12 +48,14 @@
       border-left: 1px solid #D1E2FF;
     }
   </style>
+</head>
+<body>
    <!--
    The following is a common layout you would see in an email client.
 
    When a user clicks a checkbox, holds Shift, and then clicks another checkbox a few rows down, all the checkboxes inbetween those two checkboxes should be checked.
-
   -->
+
   <div class="inbox">
     <div class="item">
       <input type="checkbox">
@@ -96,6 +96,41 @@
   </div>
 
 <script>
+  const inputElements = document.querySelectorAll('.inbox input[type="checkbox"]');
+
+  let lastChecked;
+
+  function handleCheck(event) {
+    console.log(event);
+
+    let inBetween = false;
+    // checking if the shift key is down and if the checkbox is checked
+    if (event.shiftKey && this.checked) {
+      
+      //looping over every single checkbox
+      inputElements.forEach((inputElement) => {
+        console.log(inputElement);
+
+        if (inputElement === this /*the element that is going to be checked*/ || inputElement === lastChecked) {
+          inBetween = !inBetween; // we would normally assign it to 'true' but since we want to go both ways inBetween is assigned to the opposite of itself
+          console.log('Starting to check them inbetween');
+        };
+
+        if (inBetween) {
+          inputElement.checked = true;
+        }
+      });
+
+    };
+
+    lastChecked = this;
+  };
+
+  inputElements.forEach((inputElement) => {
+    inputElement.addEventListener('click', handleCheck);
+  });
+
 </script>
+
 </body>
 </html>
