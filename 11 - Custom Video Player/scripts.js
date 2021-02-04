@@ -14,15 +14,15 @@ function togglePlay() {
             break;
         default:
             video.pause()
-    }
-}
+    };
+};
 
 function updatePlayerBtn() {
     switch (true) {
         case video.paused:
             playerBtn.textContent = '►';
             break;
-            default:
+        default:
             playerBtn.textContent = '❚❚';
     } 
 };
