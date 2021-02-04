@@ -5,6 +5,7 @@ const progressBar = document.querySelector('.progress__filled');
 const playerBtn = document.querySelector('.player__button');
 const sliderInputs = document.querySelectorAll('.player__slider');
 const skipBtns = document.querySelectorAll('[data-skip]');
+const fullScreenBtn = document.querySelector('..full__screen__btn');
 
 // to play and stop the video
 function togglePlay() {
