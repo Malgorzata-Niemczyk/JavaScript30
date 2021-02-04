@@ -32,6 +32,13 @@ function skipVideo() {
     video.currentTime = video.currentTime + parseFloat(this.dataset.skip)
 };
 
+function handleRangeUpdate() {
+    // console.log(this.value);
+    // console.log(this.name);
+
+    video[this.name] = this.value;
+}
+
 // event listeners
 playerBtn.addEventListener('click', togglePlay);
 video.addEventListener('click', togglePlay);
@@ -39,7 +46,10 @@ video.addEventListener('play', updatePlayerBtn);
 video.addEventListener('pause', updatePlayerBtn);
 skipBtns.forEach(skipBtn => {
     skipBtn.addEventListener('click', skipVideo);
-})
+});
+sliderInputs.forEach(sliderInput => {
+    sliderInput.addEventListener('change', handleRangeUpdate)
+});
 
 
 
