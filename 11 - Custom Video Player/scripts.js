@@ -5,7 +5,7 @@ const progressBar = document.querySelector('.progress__filled');
 const playerBtn = document.querySelector('.player__button');
 const sliderInputs = document.querySelectorAll('.player__slider');
 const skipBtns = document.querySelectorAll('[data-skip]');
-const fullScreenBtn = document.querySelector('..full__screen__btn');
+const fullScreenBtn = document.querySelector('.full__screen__btn');
 
 // to play and stop the video
 function togglePlay() {
@@ -46,6 +46,16 @@ function handleProgressBar() {
     progressBar.style.flexBasis = `${percent}%`;
 };
 
+function addFullScreen() {
+    if (video.requestFullscreen) {
+        video.requestFullscreen();
+      } else if (video.webkitRequestFullscreen) { /* Safari */
+        video.webkitRequestFullscreen();
+      } else if (video.msRequestFullscreen) { /* IE11 */
+        video.msRequestFullscreen();
+      }
+};
+
 // event listeners
 playerBtn.addEventListener('click', togglePlay);
 video.addEventListener('click', togglePlay);
@@ -58,6 +68,7 @@ sliderInputs.forEach(sliderInput => {
     sliderInput.addEventListener('change', handleRangeUpdate)
 });
 video.addEventListener('timeupdate', handleProgressBar);
-
+fullScreenBtn.addEventListener('click', addFullScreen);
+video.addEventListener('dblclick', addFullScreen);
 
 
