@@ -17,9 +17,21 @@ function togglePlay() {
     }
 }
 
+function updatePlayerBtn() {
+    switch (true) {
+        case video.paused:
+            playerBtn.textContent = '►';
+            break;
+            default:
+            playerBtn.textContent = '❚❚';
+    } 
+};
+
 // event listeners
 playerBtn.addEventListener('click', togglePlay);
 video.addEventListener('click', togglePlay);
+video.addEventListener('play', updatePlayerBtn);
+video.addEventListener('pause', updatePlayerBtn);
 
 
 
