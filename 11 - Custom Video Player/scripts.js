@@ -27,11 +27,19 @@ function updatePlayerBtn() {
     } 
 };
 
+function skipVideo() {
+    // console.log(this.dataset.skip);
+    video.currentTime = video.currentTime + parseFloat(this.dataset.skip)
+};
+
 // event listeners
 playerBtn.addEventListener('click', togglePlay);
 video.addEventListener('click', togglePlay);
 video.addEventListener('play', updatePlayerBtn);
 video.addEventListener('pause', updatePlayerBtn);
+skipBtns.forEach(skipBtn => {
+    skipBtn.addEventListener('click', skipVideo);
+})
 
 
 
