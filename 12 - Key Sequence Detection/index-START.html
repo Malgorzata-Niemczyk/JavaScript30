@@ -7,6 +7,23 @@
 </head>
 <body>
 <script>
+  const pressedKey = [];
+  const secretWord = 'unicorn'
+
+  window.addEventListener('keyup', (event) => {
+    // console.log(event.key);
+
+    pressedKey.push(event.key)
+    pressedKey.splice(-secretWord.length - 1, pressedKey.length - secretWord.length);
+
+    if (pressedKey.join('').includes(secretWord)) {
+      console.log('Woo Hoo');
+      cornify_add();
+    }
+    
+    console.log(pressedKey)
+
+  })
 </script>
 </body>
 </html>
